@@ -2,15 +2,11 @@
 
 deploy_target=$1
 
-if [[ $deploy_target == "deploy" ]]; then
-	npm run build
-	PORT=5005 node build
-elif [[ $deploy_target  == "start" ]]; then
-	PORT=5005 node build
+if [[ $deploy_target == "prod" ]]; then
+	docker compose up --build -d
 else
 	echo "Invalid deployment target specified! Must run as either:"
-	echo "  ./run.sh deploy"
-	echo "  ./run.sh run"
+	echo "  ./run.sh prod"
 fi
 
 

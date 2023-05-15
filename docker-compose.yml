@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile.sveltekit
+    ports:
+      - 5005:3000
+    restart: unless-stopped
+  pocketbase:
+    build:
+      dockerfile: ./Dockerfile.pocketbase
+    volumes:
+      - ./pb_data:/pb/pb_data
+    ports:
+      - 8090:8090
+    restart: unless-stopped
