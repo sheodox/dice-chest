@@ -8,19 +8,20 @@ export const linkGen = {
 		new: () => '/categories/new',
 		show: (id: string) => `/categories/${id}`,
 		edit: (id: string) => `/categories/${id}/edit`,
-		delete: (id: string) => `/categories/${id}/delete`,
 		roll: (id: string) => `/categories/${id}/roll`,
 		plan: (id: string, listIds: string) => `/categories/${id}/plan?listIds=${listIds}`
 	},
 	activityLists: {
 		base: (categoryId: string) => `/categories/${categoryId}`,
 		new: (categoryId: string) => `/categories/${categoryId}/activity-lists/new`,
-		show: (id: string) => `/activity-lists/${id}`
+		show: (id: string) => `/activity-lists/${id}`,
+		edit: (id: string) => `/activity-lists/${id}/edit`
 	},
 	activities: {
 		base: (activityListId: string) => linkGen.activityLists.show(activityListId),
 		new: (activityListId: string) => `/activity-lists/${activityListId}/activities/new`,
-		show: (id: string) => `/activities/${id}`
+		show: (id: string) => `/activities/${id}`,
+		edit: (id: string) => `/activities/${id}/edit`
 	}
 };
 
@@ -43,6 +44,14 @@ export const breadcrumbGen = {
 				{
 					text: category.name,
 					href: linkGen.categories.show(category.id)
+				}
+			];
+		},
+		edit: (category: Identifiable) => {
+			return [
+				...breadcrumbGen.categories.show(category),
+				{
+					text: 'Edit'
 				}
 			];
 		},
@@ -75,6 +84,14 @@ export const breadcrumbGen = {
 					href: linkGen.activityLists.show(list.id)
 				}
 			];
+		},
+		edit: (category: Identifiable, list: Identifiable) => {
+			return [
+				...breadcrumbGen.activityLists.show(category, list),
+				{
+					text: 'Edit'
+				}
+			];
 		}
 	},
 	activities: {
@@ -95,6 +112,14 @@ export const breadcrumbGen = {
 				{
 					text: activity.name,
 					href: linkGen.activities.show(activity.id)
+				}
+			];
+		},
+		edit: (category: Identifiable, list: Identifiable, activity: Identifiable) => {
+			return [
+				...breadcrumbGen.activities.show(category, list, activity),
+				{
+					text: 'Edit'
 				}
 			];
 		}

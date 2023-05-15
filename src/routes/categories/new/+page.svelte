@@ -4,7 +4,7 @@
 	<h1>New Category</h1>
 
 	<div class="f-column gap-2 mt-2">
-		<TextInput name="name" value="">Name</TextInput>
+		<CategoryForm />
 
 		<button class="primary">Create</button>
 	</div>
@@ -12,6 +12,7 @@
 
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { TextInput, Breadcrumbs } from 'sheodox-ui';
+	import { Breadcrumbs } from 'sheodox-ui';
 	import { breadcrumbGen } from '$lib/breadcrumbs';
+	import CategoryForm from '$lib/CategoryForm.svelte';
 </script>

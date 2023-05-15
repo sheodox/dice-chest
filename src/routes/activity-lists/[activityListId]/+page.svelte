@@ -2,6 +2,10 @@
 
 <div class="f-row justify-content-between align-items-center">
 	<h1>{data.activityList.name}</h1>
+	<a class="button tertiary" href={linkGen.activityLists.edit(data.activityList.id)}>
+		<Icon icon="pen" />
+		Edit
+	</a>
 </div>
 
 <div class="f-row justify-content-between align-items-center">
@@ -16,10 +20,8 @@
 {/each}
 
 <script lang="ts">
-	import { Breadcrumbs } from 'sheodox-ui';
+	import { Breadcrumbs, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 
 	export let data;
-
-	console.log(data);
 </script>

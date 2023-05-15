@@ -8,7 +8,7 @@
 		margin: 0 auto;
 	}
 
-	form.single-form-page {
+	.single-form-page {
 		margin: 0 auto;
 		max-width: 100%;
 		width: 30rem;

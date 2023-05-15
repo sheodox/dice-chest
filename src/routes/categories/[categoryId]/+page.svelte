@@ -5,23 +5,12 @@
 	<div>
 		<a class="button primary" href={linkGen.categories.roll(data.category.id)}>
 			<Icon icon="hat-wizard" />
-			Roll</a
-		>
-		<MenuButton>
-			<span slot="trigger" title="options">
-				<Icon icon="ellipsis-v" />
-			</span>
-			<ul slot="menu">
-				{#each options as opt}
-					<li>
-						<a href={opt.href} class="button">
-							<Icon icon={opt.icon} />
-							{opt.text}
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</MenuButton>
+			Roll
+		</a>
+		<a class="button tertiary" href={linkGen.categories.edit(data.category.id)}>
+			<Icon icon="pen" />
+			Edit
+		</a>
 	</div>
 </div>
 

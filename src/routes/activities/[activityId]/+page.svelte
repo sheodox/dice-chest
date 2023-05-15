@@ -10,7 +10,11 @@
 
 <div class="f-row justify-content-between align-items-center">
 	<h1>{data.activity.name}</h1>
-	<!-- <a class="button primary" href={linkGen.activities.new(data.activityList.id)}>New Activity</a> -->
+
+	<a class="button tertiary" href={linkGen.activities.edit(data.activity.id)}>
+		<Icon icon="pen" />
+		Edit
+	</a>
 </div>
 
 <Fieldset legend="Description">
@@ -23,10 +27,8 @@
 </Fieldset>
 
 <script lang="ts">
-	import { Breadcrumbs, Fieldset } from 'sheodox-ui';
+	import { Breadcrumbs, Fieldset, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 
 	export let data;
-
-	console.log(data);
 </script>

@@ -13,7 +13,7 @@
 <div class="f-row justify-content-between align-items-center">
 	<h1>{data.category.name}</h1>
 	<div>
-		<button class="primary" on:click={copyPlan}><Icon icon="copy" />Copy Plan</button>
+		<button class="primary" on:click={copyPlan} use:ripple><Icon icon="copy" />Copy Plan</button>
 		<button on:click={generatePlan} class="tertiary" use:ripple
 			><Icon icon="hat-wizard" /> Reroll All</button
 		>
