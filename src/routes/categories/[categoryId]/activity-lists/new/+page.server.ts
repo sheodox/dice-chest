@@ -1,6 +1,8 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { linkGen } from '$lib/breadcrumbs';
+import { pbErrorToErrorString } from '$lib/util';
+import { ClientResponseError } from 'pocketbase';
 
 export const load = (({ locals, params }) => {
 	return {
@@ -27,6 +29,15 @@ export const actions: Actions = {
 			id = rec.id;
 		} catch (e) {
 			console.log('Error creating activity list: ', e);
+
+			if (e instanceof ClientResponseError) {
+				return fail(400, {
+					name: formData.get('name') as string,
+					validationMessage: pbErrorToErrorString(e)
+				});
+			} else {
+				throw error(500, 'Something went wrong creating activity list');
+			}
 		}
 
 		if (id) {

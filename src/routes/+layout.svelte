@@ -8,6 +8,8 @@
 		margin: 0 auto;
 	}
 
+	// forms or form containers for narrow, centered, pages containing just a form
+	// for which a full width page would look weird
 	.single-form-page {
 		margin: 0 auto;
 		max-width: 100%;
@@ -18,6 +20,12 @@
 		}
 	}
 
+	// used for printing errror messages, respecting activity description newlines
+	.pre-line {
+		white-space: pre-line;
+	}
+
+	// section headers in the sidebar
 	.nav-heading {
 		text-transform: uppercase;
 		color: var(--sx-gray-75);

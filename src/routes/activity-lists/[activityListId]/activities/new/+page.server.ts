@@ -1,6 +1,8 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { linkGen } from '$lib/breadcrumbs';
+import { ClientResponseError } from 'pocketbase';
+import { pbErrorToErrorString } from '$lib/util';
 
 export const load = (async ({ locals, params }) => {
 	const activityList = await locals.pb
@@ -15,7 +17,7 @@ export const load = (async ({ locals, params }) => {
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	newActivity: async ({ request, locals }) => {
+	newActivity: async ({ request, params, locals }) => {
 		if (!locals.user) {
 			return;
 		}
@@ -32,10 +34,22 @@ export const actions: Actions = {
 			id = rec.id;
 		} catch (e) {
 			console.log('Error creating activity: ', e);
+			if (e instanceof ClientResponseError) {
+				return fail(400, {
+					name: formData.get('name') as string,
+					description: formData.get('description') as string,
+					validationMessage: pbErrorToErrorString(e)
+				});
+			}
 		}
 
 		if (id) {
-			throw redirect(303, linkGen.activities.show(id));
+			return fail(201, {
+				name: '',
+				description: '',
+				createdId: id,
+				createdName: formData.get('name') as string
+			});
 		} else {
 			throw error(500, 'Something went wrong creating an activity');
 		}

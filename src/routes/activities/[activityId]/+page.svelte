@@ -1,8 +1,4 @@
-<style>
-	.description {
-		white-space: pre-line;
-	}
-</style>
+<Title title={data.activity.name} />
 
 <Breadcrumbs
 	links={breadcrumbGen.activities.show(data.category, data.activityList, data.activity)}
@@ -20,7 +16,7 @@
 <Fieldset legend="Description">
 	{@const desc = data.activity.description.trim()}
 	{#if desc}
-		<p class="description">{desc}</p>
+		<p class="pre-line">{desc}</p>
 	{:else}
 		<p class="muted">No description</p>
 	{/if}
@@ -29,6 +25,7 @@
 <script lang="ts">
 	import { Breadcrumbs, Fieldset, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
+	import Title from '$lib/Title.svelte';
 
 	export let data;
 </script>

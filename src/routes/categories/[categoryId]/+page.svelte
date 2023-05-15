@@ -1,3 +1,11 @@
+<style>
+	.card {
+		flex-basis: 18rem;
+	}
+</style>
+
+<Title title={data.category.name} />
+
 <Breadcrumbs links={breadcrumbGen.categories.show(data.category)} />
 
 <div class="f-row justify-content-between align-items-center">
@@ -24,29 +32,17 @@
 <div class="f-row f-wrap gap-4">
 	{#each data.activityLists as list}
 		<a class="card clickable p-4" href={linkGen.activityLists.show(list.id)}>
-			<span class="card-title">
+			<div class="card-title p-0">
 				{list.name}
-			</span></a
-		>
+			</div>
+		</a>
 	{/each}
 </div>
 
 <script lang="ts">
-	import { Breadcrumbs, MenuButton, Icon } from 'sheodox-ui';
+	import { Breadcrumbs, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
+	import Title from '$lib/Title.svelte';
 
 	export let data;
-
-	const options = [
-		{
-			text: 'Edit',
-			icon: 'edit',
-			href: ''
-		},
-		{
-			text: 'Delete',
-			icon: 'trash',
-			href: ''
-		}
-	];
 </script>

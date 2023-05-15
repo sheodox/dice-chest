@@ -20,6 +20,7 @@ export const linkGen = {
 	activities: {
 		base: (activityListId: string) => linkGen.activityLists.show(activityListId),
 		new: (activityListId: string) => `/activity-lists/${activityListId}/activities/new`,
+		newBulk: (activityListId: string) => `/activity-lists/${activityListId}/activities/new/bulk`,
 		show: (id: string) => `/activities/${id}`,
 		edit: (id: string) => `/activities/${id}/edit`
 	}

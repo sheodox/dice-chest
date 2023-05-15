@@ -1,6 +1,8 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 import { linkGen } from '$lib/breadcrumbs';
+import { pbErrorToErrorString } from '$lib/util';
+import { ClientResponseError } from 'pocketbase';
 export const load = (async ({ locals, params }) => {
 	const activityList = await locals.pb
 		.collection('activity_list')
@@ -25,7 +27,14 @@ export const actions: Actions = {
 			await locals.pb.collection('activity_list').update(params.activityListId, formData);
 		} catch (e) {
 			console.log('Error creating category: ', e);
-			throw error(500, 'Something went wrong updating a category');
+			if (e instanceof ClientResponseError) {
+				return fail(400, {
+					name: formData.get('name') as string,
+					validationMessage: pbErrorToErrorString(e)
+				});
+			} else {
+				throw error(500, 'Something went wrong updating activity list');
+			}
 		}
 
 		throw redirect(303, linkGen.activityLists.show(params.activityListId));

@@ -1,7 +1,7 @@
-<TextInput name="name" value={name}>Name</TextInput>
+<TextInput name="name" bind:value={name} autofocus>Name</TextInput>
 
 <label for="activity-description">Description</label>
-<textarea id="activity-description" name="description" value={description} />
+<textarea id="activity-description" name="description" bind:value={description} />
 
 <script lang="ts">
 	import { TextInput } from 'sheodox-ui';

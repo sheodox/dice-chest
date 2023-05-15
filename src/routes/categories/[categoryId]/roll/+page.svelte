@@ -1,3 +1,5 @@
+<Title title="Roll {data.category.name}" />
+
 <Breadcrumbs links={breadcrumbGen.categories.roll(data.category)} />
 
 <div class="f-row justify-content-between align-items-center">
@@ -32,9 +34,9 @@
 </div>
 
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import { Breadcrumbs, Fieldset, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
+	import Title from '$lib/Title.svelte';
 
 	export let data;
 

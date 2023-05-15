@@ -1,5 +1,7 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
+import { ClientResponseError } from 'pocketbase';
+import { pbErrorToErrorString } from '$lib/util';
 
 export const actions: Actions = {
 	register: async ({ locals, request }) => {
@@ -10,12 +12,24 @@ export const actions: Actions = {
 				username: body.name,
 				...body
 			});
+
 			await locals.pb.collection('users').requestVerification(body.email as string);
 		} catch (e) {
 			console.log('Error registering: ', e);
-			throw error(500, 'Something went wrong');
+
+			if (e instanceof ClientResponseError) {
+				return fail(400, {
+					name: body.name as string,
+					email: body.email as string,
+					password: body.password as string,
+					passwordConfirm: body.passwordConfirm as string,
+					validationMessage: pbErrorToErrorString(e)
+				});
+			} else {
+				throw error(500, 'Something went wrong registering');
+			}
 		}
 
-		throw redirect(303, '/login');
+		throw redirect(303, '/login?new=true');
 	}
 };

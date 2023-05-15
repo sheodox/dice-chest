@@ -1,4 +1,4 @@
-<TextInput name="name" value={name}>Name</TextInput>
+<TextInput name="name" value={name} autofocus>Name</TextInput>
 
 <script lang="ts">
 	import { TextInput } from 'sheodox-ui';

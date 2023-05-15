@@ -1,12 +1,11 @@
 <style>
-	.description {
-		white-space: pre-line;
-	}
 	.card {
 		flex-basis: 15rem;
 		min-height: 10rem;
 	}
 </style>
+
+<Title title="Plan {data.category.name}" />
 
 <Breadcrumbs links={breadcrumbGen.categories.roll(data.category)} />
 
@@ -29,7 +28,7 @@
 					<p class="sx-font-size-4 px-2 m-0 card-title">
 						{item.activity?.name ?? 'No activities!'}
 					</p>
-					<p class="sx-font-size-2 px-2 description f-1">{item.activity.description}</p>
+					<p class="sx-font-size-2 px-2 pre-line f-1 muted">{item.activity.description}</p>
 					<button class="tertiary" on:click={() => reroll(index)} use:ripple
 						><Icon icon="hat-wizard" /> Reroll?
 					</button>
@@ -49,6 +48,7 @@
 	import { Breadcrumbs, ripple, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 	import type { Activity, ActivityList } from '$lib/types';
+	import Title from '$lib/Title.svelte';
 
 	export let data;
 
