@@ -5,6 +5,7 @@ COPY package*.json ./
 RUN npm ci
 
 ENV NODE_ENV=production
+ENV PB_HOST=pocketbase
 COPY . .
 RUN npm run build
 
