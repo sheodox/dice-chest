@@ -46,6 +46,12 @@
 			display: block;
 		}
 	}
+
+	svg.logo {
+		width: 2rem !important;
+		height: 2rem !important;
+	}
+
 	@media (max-width: 700px) {
 		.card-list {
 			grid-template-columns: 1fr;
@@ -59,6 +65,9 @@
 <SheodoxUIStyles />
 
 <Header appName="Dice Chest" {showMenuTrigger} bind:menuOpen href="/">
+	<svg viewBox="0 0 100 100" slot="logo">
+		<image xlink:href="/logo.svg" />
+	</svg>
 	<div slot="headerEnd">
 		{#if !data.user}
 			<a href="/login" class="button primary">Login</a>
