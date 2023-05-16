@@ -1,9 +1,12 @@
-# Dice Chest
+<div align="center">
+	<img src="static/logo.svg?sanitize=true" width="160" height="160" alt="logo">
+	<h1>Dice Chest</h1>
+</div>
 
-**Dice Chest is WIP!**
+Plan things with just the broad strokes.
 
-Dice Chest is meant to be your decision maker for planning things like date nights, parties, etc. Create any categories you like to plan and create lists of activities inside there. When you're ready to do something, select the activity lists you want to chose between and it'll give you a plan!
+Dice Chest is a tool for planning events like dates, parties, and hangouts. Create lists of activities, and plan events by just selecting which types of activities you want, then Dice Chest will give you a list of specific activities from your lists.
 
-I wanted this so my wife and I can plan our dates. We're going to have a "Dates" category, then lists of movies, board games, restaurants, places to walk, activities to do away from home etc.
+I wanted this so my wife and I can plan our dates. We're have a "Dates" category, then lists of movies, board games, restaurants, places to walk, activities to do away from home etc.
 
-To plan a date we can just go to the "Dates" category we made, select which of those lists we want and in what order, e.g. "Walks -> Snacks/Drinks -> Activities (away from home) -> Restaurants -> Board game", and Dice Chest might suggest: a local park, a bubble tea location, walk around a local mall, get ramen at a place we've been interested in, then do a puzzle.
+To plan a date we just have to select which of those lists we want and in what order, e.g. "Walks -> Snacks/Drinks -> Activities (away from home) -> Restaurants -> Board game", and Dice Chest might suggest: a local park, a bubble tea location, walk around a local mall, get ramen at a place we've been interested in, then do a puzzle.
