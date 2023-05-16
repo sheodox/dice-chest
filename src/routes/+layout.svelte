@@ -60,6 +60,9 @@
 			flex-basis: auto;
 		}
 	}
+	:root {
+		--sx-hue-gray: 190 !important;
+	}
 </style>
 
 <SheodoxUIStyles />

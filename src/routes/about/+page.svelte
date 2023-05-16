@@ -1,7 +1,9 @@
 <Title title="About" />
 
-<div class="layout-narrow has-inline-links">
+<div class="layout-narrow">
 	<Breadcrumbs links={breadcrumbs} />
+</div>
+<div class="layout-narrow has-inline-links">
 	<h1>About</h1>
 	<p>Dice Chest is built by <ExternalLink href="https://sheodox.com/">sheodox</ExternalLink>.</p>
 

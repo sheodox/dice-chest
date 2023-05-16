@@ -16,8 +16,10 @@
 
 <Title title="Help" />
 
-<div class="layout-medium has-inline-links f-column gap-6">
+<div class="layout-medium">
 	<Breadcrumbs links={breadcrumbs} />
+</div>
+<div class="layout-medium has-inline-links f-column gap-6">
 	<h1>Help</h1>
 
 	<p>
