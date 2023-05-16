@@ -15,6 +15,7 @@
 		padding-top: var(--sx-spacing-10);
 		padding-bottom: var(--sx-spacing-10);
 		width: 100%;
+		max-width: 100vw;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -23,6 +24,8 @@
 	section > * {
 		width: 80rem;
 		max-width: 100%;
+		padding-left: var(--sx-spacing-4);
+		padding-right: var(--sx-spacing-4);
 	}
 
 	section:nth-of-type(even) {
@@ -43,6 +46,14 @@
 		overflow: hidden;
 		opacity: 0.1;
 		pointer-events: none;
+	}
+	@media (max-width: 600px) {
+		.hero-title {
+			font-size: var(--sx-font-size-8);
+		}
+		.hero-subtitle {
+			font-size: var(--sx-font-size-6);
+		}
 	}
 </style>
 
