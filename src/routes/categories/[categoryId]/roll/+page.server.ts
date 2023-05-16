@@ -1,3 +1,4 @@
+import type { ActivityList, Category } from '$lib/types';
 import type { PageServerLoad } from './$types';
 
 const activityListExpand = 'activity_list(category)';
@@ -9,7 +10,7 @@ export const load = (async ({ locals, params }) => {
 		.then(structuredClone);
 
 	return {
-		category: category,
-		activityLists: category.expand[activityListExpand] ?? []
+		category: category as Category,
+		activityLists: ((category as any).expand[activityListExpand] ?? []) as ActivityList[]
 	};
 }) satisfies PageServerLoad;

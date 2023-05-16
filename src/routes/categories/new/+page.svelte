@@ -1,4 +1,4 @@
-<form action="?/newCategory" method="POST" use:enhance class="single-form-page">
+<form action="?/newCategory" method="POST" use:enhance class="layout-narrow">
 	<Breadcrumbs links={breadcrumbGen.categories.new()} />
 
 	<h1>New Category</h1>

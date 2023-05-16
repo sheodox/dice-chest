@@ -1,4 +1,4 @@
-<form action="?/bulk" method="POST" use:enhance class="single-form-page f-column">
+<form action="?/bulk" method="POST" use:enhance class="layout-narrow f-column">
 	<Breadcrumbs links={breadcrumbGen.activities.new(data.category, data.activityList)} />
 
 	<h1>Bulk New Activity</h1>
@@ -8,7 +8,22 @@
 	{/if}
 
 	<label for="bulk-activities"> Activities </label>
-	<textarea name="activitiesRaw" bind:value={bulkActivities} />
+	<textarea name="activitiesRaw" bind:value={bulkActivities} use:focus />
+
+	{#if activities.length}
+		<Fieldset legend="Activities Detected">
+			<ul>
+				{#each activities as act}
+					<li>
+						{act}
+						{#if act.length < 2}
+							<span class="sx-badge-red">Too short!</span>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		</Fieldset>
+	{/if}
 
 	<div class="f-column gap-2 mt-2">
 		<input type="hidden" name="activityList" value={data.activityList.id} />
@@ -20,24 +35,11 @@
 		{/if}
 		<button class="primary" {disabled} use:ripple>Create</button>
 	</div>
-
-	<Fieldset legend="Activities Detected">
-		<ul>
-			{#each activities as act}
-				<li>
-					{act}
-					{#if act.length < 2}
-						<span class="sx-badge-red">Too short!</span>
-					{/if}
-				</li>
-			{/each}
-		</ul>
-	</Fieldset>
 </form>
 
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { Alert, Fieldset, Breadcrumbs, ripple } from 'sheodox-ui';
+	import { Alert, Fieldset, Breadcrumbs, ripple, focus } from 'sheodox-ui';
 	import { breadcrumbGen } from '$lib/breadcrumbs';
 
 	export let data;

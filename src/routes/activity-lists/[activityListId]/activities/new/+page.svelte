@@ -12,7 +12,7 @@
 			}
 		};
 	}}
-	class="single-form-page"
+	class="layout-narrow"
 >
 	<Breadcrumbs links={breadcrumbGen.activities.new(data.category, data.activityList)} />
 

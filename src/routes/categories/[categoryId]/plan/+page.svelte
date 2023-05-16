@@ -20,7 +20,7 @@
 </div>
 
 <div class="f-column gap-6">
-	<div class="f-row f-wrap gap-4">
+	<div class="card-list">
 		{#each plan as item, index}
 			{@const activityCount = data.activities[item.activityList.id]?.length ?? 0}
 			<div class="card f-1 f-column">

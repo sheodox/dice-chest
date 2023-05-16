@@ -3,10 +3,14 @@ import type { Actions, PageServerLoad } from './$types';
 import { linkGen } from '$lib/breadcrumbs';
 import { pbErrorToErrorString } from '$lib/util';
 import { ClientResponseError } from 'pocketbase';
+import type { Category } from '$lib/types';
 
 export const load = (({ locals, params }) => {
 	return {
-		category: locals.pb.collection('category').getOne(params.categoryId).then(structuredClone)
+		category: locals.pb
+			.collection('category')
+			.getOne(params.categoryId)
+			.then(structuredClone) as Promise<Category>
 	};
 }) satisfies PageServerLoad;
 

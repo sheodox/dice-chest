@@ -1,4 +1,4 @@
-<form action="?/newActivityList" method="POST" use:enhance class="single-form-page">
+<form action="?/newActivityList" method="POST" use:enhance class="layout-narrow">
 	<Breadcrumbs links={breadcrumbGen.activityLists.new(data.category)} />
 
 	<h1>New Activity List</h1>

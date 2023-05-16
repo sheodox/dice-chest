@@ -29,7 +29,7 @@
 	>
 </div>
 
-<div class="f-row f-wrap gap-4">
+<div class="card-list">
 	{#each data.activityLists as list}
 		<a class="card clickable p-4" href={linkGen.activityLists.show(list.id)}>
 			<div class="card-title p-0">

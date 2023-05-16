@@ -21,7 +21,7 @@
 	<a class="button secondary" href={linkGen.activities.new(data.activityList.id)}>New Activity</a>
 </div>
 
-<div class="f-row f-wrap gap-4">
+<div class="card-list">
 	{#each data.activities as activity}
 		<a class="card clickable p-4" href={linkGen.activities.show(activity.id)}>
 			<div class="card-title p-0 f-row justify-content-between align-items-start">

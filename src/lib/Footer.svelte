@@ -1,8 +1,10 @@
 <Footer>
 	<div class="page-content">
 		<nav class="simple-footer-links">
-			<ul>
+			<ul class="p-0">
 				<li><ExternalLink href="https://sheodox.com">&copy;2023 sheodox</ExternalLink></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/help">Help</a></li>
 			</ul>
 		</nav>
 	</div>

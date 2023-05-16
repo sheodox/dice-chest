@@ -5,6 +5,7 @@ import { linkGen } from '$lib/breadcrumbs';
 import type { PageServerLoad } from './$types';
 import { ClientResponseError } from 'pocketbase';
 import { pbErrorToErrorString } from '$lib/util';
+import type { Category } from '$lib/types';
 
 export const load = (async ({ locals, params }) => {
 	const category = await locals.pb
@@ -13,7 +14,7 @@ export const load = (async ({ locals, params }) => {
 		.then(structuredClone);
 
 	return {
-		category: category
+		category: category as Category
 	};
 }) satisfies PageServerLoad;
 

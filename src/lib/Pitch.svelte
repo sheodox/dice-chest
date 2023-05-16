@@ -1,8 +1,8 @@
-<style>
+<style lang="scss">
 	.hero {
 		flex-direction: row;
 		justify-content: center;
-		min-height: 50rem;
+		min-height: 40rem;
 	}
 	.hero-title {
 		font-size: var(--sx-font-size-11);
@@ -21,22 +21,13 @@
 		align-items: center;
 	}
 
-	section > * {
-		width: 80rem;
-		max-width: 100%;
-		padding-left: var(--sx-spacing-4);
-		padding-right: var(--sx-spacing-4);
-	}
-
 	section:nth-of-type(even) {
 		background: var(--sx-gray-800);
-	}
-	.guide p {
-		font-size: var(--sx-font-size-6);
 	}
 	.hero-image {
 		background-image: url('/unsplash-dice.jpg');
 		background-size: cover;
+		background-position: center;
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -55,11 +46,27 @@
 			font-size: var(--sx-font-size-6);
 		}
 	}
+
+	section:not(.hero) {
+		img {
+			border-radius: 20px;
+		}
+
+		> * {
+			width: 80rem;
+			max-width: calc(100% - 2 * var(--sx-spacing-4));
+			margin-left: var(--sx-spacing-4);
+			margin-right: var(--sx-spacing-4);
+		}
+		p {
+			font-size: var(--sx-font-size-6);
+		}
+	}
 </style>
 
 <section class="hero">
 	<div class="hero-image" />
-	<div>
+	<div class="p-4">
 		<h1 class="hero-title">
 			<Icon icon="dice-d20" />
 			Dice Chest is your decision maker.
@@ -77,18 +84,32 @@
 		I made Dice Chest to plan date nights with my wife. We have lists of activities for restaurants,
 		movies, shows, etc.
 	</p>
-	<img src="/dates-categories.png" alt="category list demo" class="pb-6" />
+	<img src="/dates-categories.png" alt="category list demo" />
 
 	<p class="py-6">
 		Planning a date night is as simple as selecting the order we want to do the different types of
 		activities.
 	</p>
 
-	<img src="/dates-roll.png" alt="selecting activity lists demo" class="pb-6" />
+	<img src="/dates-roll.png" alt="selecting activity lists demo" />
 
-	<p class="py-6">Then just let Dice Chest select some random activities from our lists!</p>
+	<p class="py-6">Then Dice Chest will plan a date with random activities from our lists.</p>
 
 	<img src="/dates-plan.png" alt="demo showing random date night plan" />
+</section>
+
+<section class="has-inline-links">
+	<h1>Endless Uses</h1>
+
+	<p>
+		Have a ton of ideas but can't decide what to do? Use Dice Chest to plan dates, parties,
+		vacations, or your evening tonight.
+	</p>
+
+	<p>
+		<a href="/login" class="button primary">Login</a>
+		<a href="/register" class="button inverted">Register</a>
+	</p>
 </section>
 
 <script lang="ts">

@@ -4,13 +4,13 @@
 
 	main .main-content {
 		width: 80rem;
-		max-width: 95vw;
+		max-width: 90vw;
 		margin: 0 auto;
 	}
 
 	// forms or form containers for narrow, centered, pages containing just a form
 	// for which a full width page would look weird
-	.single-form-page {
+	.layout-narrow {
 		margin: 0 auto;
 		max-width: 100%;
 		width: 30rem;
@@ -18,6 +18,12 @@
 		textarea {
 			height: 6rem;
 		}
+	}
+
+	.layout-medium {
+		margin: 0 auto;
+		max-width: 100%;
+		width: 55rem;
 	}
 
 	// used for printing errror messages, respecting activity description newlines
@@ -30,11 +36,29 @@
 		text-transform: uppercase;
 		color: var(--sx-gray-75);
 	}
+
+	.card-list {
+		gap: var(--sx-spacing-4);
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+
+		a.card {
+			display: block;
+		}
+	}
+	@media (max-width: 700px) {
+		.card-list {
+			grid-template-columns: 1fr;
+		}
+		.card-list a.card {
+			flex-basis: auto;
+		}
+	}
 </style>
 
 <SheodoxUIStyles />
 
-<Header appName="Dice Chest" showMenuTrigger={true} bind:menuOpen href="/">
+<Header appName="Dice Chest" {showMenuTrigger} bind:menuOpen href="/">
 	<div slot="headerEnd">
 		{#if !data.user}
 			<a href="/login" class="button primary">Login</a>
@@ -65,7 +89,7 @@
 			{/each}
 		</nav>
 	</Sidebar>
-	<div class="f-1" class:m-4={!onHomepage}>
+	<div class="f-1" class:p-4={!onHomepage}>
 		<section class="f-column" class:main-content={!onHomepage}>
 			<slot />
 		</section>
@@ -81,7 +105,8 @@
 	import Footer from '$lib/Footer.svelte';
 
 	export let data;
-	$: onHomepage = $page.url.pathname === '/';
+	$: onHomepage = !data.user && $page.url.pathname === '/';
+	$: showMenuTrigger = !!data.user;
 
 	let menuOpen = false;
 </script>

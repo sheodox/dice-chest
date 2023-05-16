@@ -1,6 +1,6 @@
 <Title title="Edit {data.category.name}" />
 
-<div class="single-form-page">
+<div class="layout-narrow">
 	<Breadcrumbs links={breadcrumbGen.categories.edit(data.category)} />
 
 	<h1>Edit Category</h1>

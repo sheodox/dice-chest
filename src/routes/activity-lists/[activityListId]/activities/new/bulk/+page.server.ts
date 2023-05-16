@@ -3,6 +3,7 @@ import type { Actions, PageServerLoad } from './$types';
 import { linkGen } from '$lib/breadcrumbs';
 import { ClientResponseError } from 'pocketbase';
 import { pbErrorToErrorString } from '$lib/util';
+import type { ActivityList, Category } from '$lib/types';
 
 export const load = (async ({ locals, params }) => {
 	const activityList = await locals.pb
@@ -11,8 +12,8 @@ export const load = (async ({ locals, params }) => {
 		.then(structuredClone);
 
 	return {
-		activityList,
-		category: activityList.expand.category
+		activityList: activityList as ActivityList,
+		category: (activityList as any).expand.category as Category
 	};
 }) satisfies PageServerLoad;
 

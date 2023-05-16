@@ -1,4 +1,5 @@
-<form action="?/login" method="POST" use:enhance class="single-form-page">
+<form action="?/login" method="POST" use:enhance class="layout-narrow">
+	<Breadcrumbs links={breadcrumbs} />
 	<h1 class="mb-0">Login</h1>
 	<a href="/register" class="fw-bold inline-link">Or register</a>
 	<div class="f-column gap-2 mt-2">
@@ -36,7 +37,7 @@
 
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { TextInput, Alert } from 'sheodox-ui';
+	import { TextInput, Alert, Breadcrumbs } from 'sheodox-ui';
 	import { enhance } from '$app/forms';
 
 	export let form;
@@ -64,4 +65,14 @@
 
 		return false;
 	}
+
+	const breadcrumbs = [
+		{
+			text: 'Home',
+			href: '/'
+		},
+		{
+			text: 'Login'
+		}
+	];
 </script>
