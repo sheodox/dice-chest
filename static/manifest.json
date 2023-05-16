@@ -1,5 +1,8 @@
 {
+	"id": "/",
 	"short_name": "Dice Chest",
+	"start_url": "/",
+	"display": "minimal-ui",
 	"icons": [
 		{
 			"src": "/logo.svg",

@@ -65,7 +65,7 @@
 <SheodoxUIStyles />
 
 <Header appName="Dice Chest" {showMenuTrigger} bind:menuOpen href="/">
-	<svg viewBox="0 0 100 100" slot="logo">
+	<svg viewBox="0 0 512 512" slot="logo">
 		<image xlink:href="/logo.svg" />
 	</svg>
 	<div slot="headerEnd">
