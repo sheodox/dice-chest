@@ -65,18 +65,23 @@
 			{/each}
 		</nav>
 	</Sidebar>
-	<div class="f-1 m-4">
-		<section class="main-content f-column">
+	<div class="f-1" class:m-4={!onHomepage}>
+		<section class="f-column" class:main-content={!onHomepage}>
 			<slot />
 		</section>
 	</div>
 </main>
 
+<Footer />
+
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { linkGen } from '$lib/breadcrumbs';
 	import { Icon, SheodoxUIStyles, Header, Toasts, Sidebar } from 'sheodox-ui';
+	import Footer from '$lib/Footer.svelte';
 
 	export let data;
+	$: onHomepage = $page.url.pathname === '/';
 
 	let menuOpen = false;
 </script>
