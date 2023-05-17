@@ -11,6 +11,7 @@ services:
       dockerfile: ./Dockerfile.pocketbase
     volumes:
       - ./pb_data:/pb/pb_data
+      - ./pb_migrations:/pb/pb_migrations
     ports:
       - 8090:8090
     restart: unless-stopped
