@@ -7,6 +7,8 @@
 		<Alert variant="error"><span class="pre-line">{form.validationMessage}</span></Alert>
 	{/if}
 
+	<p>Paste or type a list of activities, with each on their own line.</p>
+
 	<label for="bulk-activities"> Activities </label>
 	<textarea name="activitiesRaw" bind:value={bulkActivities} use:focus />
 
