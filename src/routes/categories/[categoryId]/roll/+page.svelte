@@ -12,7 +12,7 @@
 			<p class="muted">Select one or more activity lists from the options below</p>
 		{:else}
 			{#each chosen as choice, index}
-				<button class="sx-badge-mint pill p-2" on:click={() => removeChoice(index)}>
+				<button class="sx-badge-cyan pill p-2" on:click={() => removeChoice(index)}>
 					{choice.name}
 					<Icon icon="times" />
 				</button>
