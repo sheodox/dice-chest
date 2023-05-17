@@ -34,6 +34,10 @@
 		<a class="card clickable p-4" href={linkGen.activityLists.show(list.id)}>
 			<div class="card-title p-0">
 				{list.name}
+				<br />
+				<span class="sx-badge-cyan sx-font-size-3 m-0"
+					>{list.activityCount} {list.activityCount === 1 ? 'Activity' : 'Activities'}</span
+				>
 			</div>
 		</a>
 	{:else}

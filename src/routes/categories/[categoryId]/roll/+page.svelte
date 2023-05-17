@@ -26,8 +26,15 @@
 	</Fieldset>
 	<div class="f-row f-wrap gap-4">
 		{#each data.activityLists as list}
-			<button class="secondary pill" on:click={() => addChoice(list)}>
-				{list.name}
+			<button
+				class="card clickable text-align-left gap-2 f-column fw-normal align-items-start"
+				on:click={() => addChoice(list)}
+			>
+				<div class="card-title p-0">{list.name}</div>
+				<div class="sx-badge-cyan m-0">
+					{list.activityCount}
+					{list.activityCount === 1 ? 'Activity' : 'Activities'}
+				</div>
 			</button>
 		{/each}
 	</div>
