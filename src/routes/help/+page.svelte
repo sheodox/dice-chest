@@ -65,7 +65,7 @@
 		</p>
 	</div>
 
-	<img src="/dates-roll.png" alt="selecting activity lists demo" class="pb-6" />
+	<img src="/dates-roll.png" alt="selecting activity lists demo" />
 
 	<p>
 		After selecting the activity lists you want, Dice Chest will pick a random itinerary. If you
