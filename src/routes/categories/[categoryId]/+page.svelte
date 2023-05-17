@@ -11,10 +11,12 @@
 <div class="f-row justify-content-between align-items-center">
 	<h1>{data.category.name}</h1>
 	<div>
-		<a class="button primary" href={linkGen.categories.roll(data.category.id)}>
-			<Icon icon="hat-wizard" />
-			Roll
-		</a>
+		{#if data.activityLists.length}
+			<a class="button primary" href={linkGen.categories.roll(data.category.id)}>
+				<Icon icon="hat-wizard" />
+				Roll
+			</a>
+		{/if}
 		<a class="button tertiary" href={linkGen.categories.edit(data.category.id)}>
 			<Icon icon="pen" />
 			Edit
