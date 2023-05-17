@@ -43,7 +43,7 @@
 				list's theme.
 			</p>
 			<a href={linkGen.activities.new(data.activityList.id)} class="button primary">
-				Make an activity
+				Make an Activity
 			</a>
 		</div>
 	{/each}
