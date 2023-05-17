@@ -2,10 +2,15 @@
 	.hero {
 		flex-direction: row;
 		justify-content: center;
-		min-height: 40rem;
+		min-height: 80vh;
+	}
+	.hero-title,
+	.hero-subtitle {
+		max-width: 90vw;
+		width: 60rem;
 	}
 	.hero-title {
-		font-size: var(--sx-font-size-11);
+		font-size: var(--sx-font-size-10);
 	}
 	.hero-subtitle {
 		font-size: var(--sx-font-size-8);
@@ -67,13 +72,14 @@
 <section class="hero">
 	<div class="hero-image" />
 	<div class="p-4">
-		<h1 class="hero-title">
+		<p class="hero-title">
 			<Icon icon="dice-d20" />
-			Dice Chest is your decision maker.
-		</h1>
+			Plan things with just the broad strokes. Let Dice Chest decide the specifics.
+		</p>
 
 		<p class="hero-subtitle">
-			Create and organize lists of activities, then let our wizards throw the dice.
+			Create and organize lists of activities, then let our wizards throw the dice to plan your
+			events.
 		</p>
 	</div>
 </section>
