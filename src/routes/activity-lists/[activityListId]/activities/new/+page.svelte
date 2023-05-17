@@ -35,8 +35,12 @@
 
 		<ActivityForm bind:name bind:description />
 
+		{#if errors.duplicateName}
+			<Alert variant="error">There's already an activity with that name in this list.</Alert>
+		{/if}
+
 		<input type="hidden" name="activityList" value={data.activityList.id} />
-		<button class="primary" use:ripple>Create</button>
+		<button class="primary" use:ripple {disabled}>Create</button>
 		<p class="text-align-center">
 			Have a list? <a href={linkGen.activities.newBulk(data.activityList.id)} class="inline-link"
 				>Add in bulk.</a
@@ -54,6 +58,12 @@
 	export let data;
 	export let form;
 
+	let errors = { duplicateName: false };
 	let name = form?.name ?? '';
 	let description = form?.description ?? '';
+
+	$: errors.duplicateName = data.activities.some(
+		(act) => act.name.toLowerCase() === name.trim().toLowerCase()
+	);
+	$: disabled = errors.duplicateName;
 </script>

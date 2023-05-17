@@ -23,18 +23,24 @@
 
 <div class="card-list">
 	{#each data.activities as activity}
-		<a class="card clickable p-4" href={linkGen.activities.show(activity.id)}>
-			<div class="card-title p-0 f-row justify-content-between align-items-start">
-				<span>{activity.name}</span>
-				<a href={linkGen.activities.edit(activity.id)} class="button tertiary small" title="Edit">
-					<Icon icon="pen" variant="icon-only" />
-					<span class="sr-only">Edit</span>
-				</a>
-			</div>
-			{#if activity.description}
-				<div class="card-body sx-font-size-2 px-0 muted">{activity.description}</div>
-			{/if}
-		</a>
+		<div class="card clickable card-split">
+			<a class="card-left" href={linkGen.activities.show(activity.id)}>
+				<span class="card-title">
+					{activity.name}
+				</span>
+				{#if activity.description}
+					<p class="card-body sx-font-size-2 p-0 m-0 muted">{activity.description}</p>
+				{/if}
+			</a>
+			<a
+				href={linkGen.activities.edit(activity.id)}
+				class="button tertiary small card-right"
+				title="Edit"
+			>
+				<Icon icon="pen" variant="icon-only" />
+				<span class="sr-only">Edit {activity.name}</span>
+			</a>
+		</div>
 	{:else}
 		<div class="empty-grid">
 			<p>You don't have any activities in this list yet.</p>

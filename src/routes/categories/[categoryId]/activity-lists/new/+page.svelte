@@ -11,9 +11,15 @@
 			Activity lists group similar activities. For planning a party you could make activity lists
 			for food, group activities, and movies.
 		</p>
-		<ActivityListForm {name} />
+		<ActivityListForm bind:name />
 
-		<button class="primary" use:ripple>Create</button>
+		{#if duplicateName}
+			<Alert variant="error"
+				>There's already an activity list with that name in this category.</Alert
+			>
+		{/if}
+
+		<button class="primary" use:ripple {disabled}>Create</button>
 	</div>
 </form>
 
@@ -27,4 +33,10 @@
 	export let form;
 
 	let name = form?.name ?? '';
+
+	$: duplicateName = data.activityLists.some(
+		(c) => c.name.toLowerCase() === name.trim().toLowerCase()
+	);
+
+	$: disabled = duplicateName;
 </script>

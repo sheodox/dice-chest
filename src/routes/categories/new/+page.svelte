@@ -14,8 +14,11 @@
 			<Alert variant="error">{form.validationMessage}</Alert>
 		{/if}
 		<CategoryForm bind:name />
+		{#if duplicateName}
+			<Alert variant="error">There's already a category with that name.</Alert>
+		{/if}
 
-		<button class="primary" use:ripple>Create</button>
+		<button class="primary" use:ripple {disabled}>Create</button>
 	</div>
 </form>
 
@@ -25,7 +28,14 @@
 	import { breadcrumbGen } from '$lib/breadcrumbs';
 	import CategoryForm from '$lib/CategoryForm.svelte';
 
+	export let data;
 	export let form;
 
 	let name = form?.name ?? '';
+
+	$: duplicateName = data.categories.some(
+		(c) => c.name.toLowerCase() === name.trim().toLowerCase()
+	);
+
+	$: disabled = duplicateName;
 </script>

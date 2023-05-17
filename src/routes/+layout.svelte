@@ -46,6 +46,23 @@
 		a.card {
 			display: block;
 		}
+		.card-split {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.card-left {
+				flex: 1;
+				padding: var(--sx-spacing-4);
+			}
+			// remove padding fromm the title, as long as it's not the only thing on the left
+			.card-title:not(.card-left) {
+				padding: 0;
+			}
+			.card-right {
+				margin: var(--sx-spacing-4);
+			}
+		}
 	}
 
 	// used to style an empty state message in the category/list/activity selection grids
@@ -78,9 +95,6 @@
 	}
 
 	@media (max-width: 700px) {
-		.card-list {
-			grid-template-columns: 1fr;
-		}
 		.card-list a.card {
 			flex-basis: auto;
 		}

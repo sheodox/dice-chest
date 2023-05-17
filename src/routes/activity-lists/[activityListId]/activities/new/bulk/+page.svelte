@@ -13,13 +13,20 @@
 	<textarea name="activitiesRaw" bind:value={bulkActivities} use:focus />
 
 	{#if activities.length}
-		<Fieldset legend="Activities Detected">
+		<Fieldset legend="Activities that will be created">
 			<ul>
 				{#each activities as act}
 					<li>
 						{act}
 						{#if act.length < 2}
 							<span class="sx-badge-red">Too short!</span>
+						{/if}
+						{#if alreadyIncluded(act)}
+							<span
+								class="sx-badge-orange"
+								title="An activity with this name already exists, a duplicate will not be created."
+								>Already exists, skipping</span
+							>
 						{/if}
 					</li>
 				{/each}
@@ -58,7 +65,8 @@
 		)
 	);
 
-	$: activitiesStringified = JSON.stringify(activities);
+	// skip adding duplicates
+	$: activitiesStringified = JSON.stringify(activities.filter((name) => !alreadyIncluded(name)));
 
 	$: disabled = checkDisabled(activities);
 
@@ -73,5 +81,9 @@
 			return true;
 		}
 		return false;
+	}
+
+	function alreadyIncluded(name: string) {
+		return data.activities.some((act) => act.name.toLowerCase() === name.trim().toLowerCase());
 	}
 </script>

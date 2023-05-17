@@ -3,16 +3,19 @@ import type { Actions, PageServerLoad } from './$types';
 import { linkGen } from '$lib/breadcrumbs';
 import { ClientResponseError } from 'pocketbase';
 import { pbErrorToErrorString } from '$lib/util';
-import type { ActivityList, Category } from '$lib/types';
+import type { Activity, ActivityList, Category } from '$lib/types';
+
+const activityExpand = 'activity(activityList)';
 
 export const load = (async ({ locals, params }) => {
 	const activityList = await locals.pb
 		.collection('activity_list')
-		.getOne(params.activityListId, { expand: 'category' })
+		.getOne(params.activityListId, { expand: `category,${activityExpand}` })
 		.then(structuredClone);
 
 	return {
 		activityList: activityList as ActivityList,
+		activities: ((activityList as any).expand[activityExpand] as Activity[]) ?? [],
 		category: (activityList as any).expand.category as Category
 	};
 }) satisfies PageServerLoad;

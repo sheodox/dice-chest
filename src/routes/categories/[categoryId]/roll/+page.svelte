@@ -7,12 +7,15 @@
 </div>
 
 <div class="f-column gap-6">
-	<Fieldset legend="Chosen Lists">
+	<Fieldset legend="The Plan" size="large">
 		{#if !chosen.length}
-			<p class="muted">Select one or more activity lists from the options below</p>
+			<p class="muted text-align-center">
+				Select a sequence of activity lists below to plan your event.
+			</p>
 		{:else}
 			{#each chosen as choice, index}
 				<button class="sx-badge-cyan pill p-2" on:click={() => removeChoice(index)}>
+					{index + 1}.
 					{choice.name}
 					<Icon icon="times" />
 				</button>
@@ -44,10 +47,11 @@
 	import { Breadcrumbs, Fieldset, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 	import Title from '$lib/Title.svelte';
+	import type { ActivityList } from '$lib/types';
 
 	export let data;
 
-	let chosen: (typeof data)['activityLists'] = [];
+	let chosen: (ActivityList & { activityCount: number })[] = [];
 	$: chosenIds = chosen.map(({ id }: { id: string }) => id).join(',');
 
 	// todo use a real type
