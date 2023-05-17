@@ -24,10 +24,10 @@
 			</div>
 		{/if}
 	</Fieldset>
-	<div class="f-row f-wrap gap-4">
+	<div class="card-list">
 		{#each data.activityLists as list}
 			<button
-				class="card clickable text-align-left gap-2 f-column fw-normal align-items-start"
+				class="card clickable p-4 text-align-left gap-2 f-column fw-normal align-items-start"
 				on:click={() => addChoice(list)}
 			>
 				<div class="card-title p-0">{list.name}</div>
