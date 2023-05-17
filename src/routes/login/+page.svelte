@@ -1,3 +1,5 @@
+<Title title="Login" />
+
 <form action="?/login" method="POST" use:enhance class="layout-narrow">
 	<Breadcrumbs links={breadcrumbs} />
 	<h1 class="mb-0">Login</h1>
@@ -31,7 +33,7 @@
 		<TextInput bind:value={email} name="email">Email</TextInput>
 		<TextInput bind:value={password} name="password" type="password">Password</TextInput>
 		<button class="primary" {disabled}>Login</button>
-		<a class="inline-link text-align-center" href="/reset-password">Reset password?</a>
+		<a class="inline-link text-align-center" href="/reset-password">Forgot password?</a>
 	</div>
 </form>
 
@@ -39,6 +41,7 @@
 	import { page } from '$app/stores';
 	import { TextInput, Alert, Breadcrumbs } from 'sheodox-ui';
 	import { enhance } from '$app/forms';
+	import Title from '$lib/Title.svelte';
 
 	export let form;
 	$: submittedEmail = form?.email ?? '';

@@ -7,6 +7,10 @@
 		{#if form?.validationMessage}
 			<Alert variant="error">{form.validationMessage}</Alert>
 		{/if}
+		<p>
+			Activity lists group similar activities. For planning a party you could make activity lists
+			for food, group activities, and movies.
+		</p>
 		<ActivityListForm {name} />
 
 		<button class="primary" use:ripple>Create</button>

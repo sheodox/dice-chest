@@ -18,11 +18,9 @@
 
 	<h1>New Activity</h1>
 	<p>
-		Have a list? <a href={linkGen.activities.newBulk(data.activityList.id)} class="inline-link"
-			>Add in bulk.</a
-		>
+		Activities might be names of local restaurants, board games, or movies. Whatever fits this
+		list's theme.
 	</p>
-
 	<div class="f-column gap-2 mt-2">
 		{#if form?.validationMessage}
 			<Alert variant="error">{form.validationMessage}</Alert>
@@ -39,6 +37,11 @@
 
 		<input type="hidden" name="activityList" value={data.activityList.id} />
 		<button class="primary" use:ripple>Create</button>
+		<p class="text-align-center">
+			Have a list? <a href={linkGen.activities.newBulk(data.activityList.id)} class="inline-link"
+				>Add in bulk.</a
+			>
+		</p>
 	</div>
 </form>
 

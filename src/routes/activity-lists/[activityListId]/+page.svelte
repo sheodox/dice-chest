@@ -35,6 +35,17 @@
 				<div class="card-body sx-font-size-2 px-0 muted">{activity.description}</div>
 			{/if}
 		</a>
+	{:else}
+		<div class="empty-grid">
+			<p>You don't have any activities in this list yet.</p>
+			<p>
+				Activities might be names of local restaurants, board games, or movies. Whatever fits this
+				list's theme.
+			</p>
+			<a href={linkGen.activities.new(data.activityList.id)} class="button primary">
+				Make an activity
+			</a>
+		</div>
 	{/each}
 </div>
 

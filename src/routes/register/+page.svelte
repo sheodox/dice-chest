@@ -1,3 +1,5 @@
+<Title title="Register" />
+
 <form action="?/register" method="POST" use:enhance class="layout-narrow">
 	<Breadcrumbs links={breadcrumbs} />
 	<h1 class="mb-0">Register</h1>
@@ -22,6 +24,7 @@
 <script lang="ts">
 	import { Alert, Breadcrumbs, TextInput } from 'sheodox-ui';
 	import { enhance } from '$app/forms';
+	import Title from '$lib/Title.svelte';
 
 	export let form;
 

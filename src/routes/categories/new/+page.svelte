@@ -2,6 +2,12 @@
 	<Breadcrumbs links={breadcrumbGen.categories.new()} />
 
 	<h1>New Category</h1>
+	<div>
+		<p>
+			Categories are usually different types of events you want to plan, like dates, hangouts with
+			friends, or a day off.
+		</p>
+	</div>
 
 	<div class="f-column gap-2 mt-2">
 		{#if form?.validationMessage}

@@ -14,7 +14,7 @@
 			<button class="primary">Update</button>
 		</form>
 
-		<form class="f-column" action="?/delete" method="POST" on:submit={confirmDelete}>
+		<form class="f-column" action="?/delete" method="POST" on:submit={confirmDelete} use:enhance>
 			<input type="hidden" name="categoryId" value={data.activityList.category} />
 			<button class="tertiary">Delete</button>
 		</form>

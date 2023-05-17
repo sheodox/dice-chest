@@ -36,6 +36,17 @@
 				{list.name}
 			</div>
 		</a>
+	{:else}
+		<div class="empty-grid">
+			<p>You don't have any activity lists yet. Activity lists group similar activities</p>
+			<p>
+				If you are planning a party you could make activity lists for restaurants, group activities,
+				and movies.
+			</p>
+			<a href={linkGen.activityLists.new(data.category.id)} class="button primary"
+				>Make an Activity List</a
+			>
+		</div>
 	{/each}
 </div>
 

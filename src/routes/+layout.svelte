@@ -41,9 +41,34 @@
 		gap: var(--sx-spacing-4);
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		flex: 1;
 
 		a.card {
 			display: block;
+		}
+	}
+
+	// used to style an empty state message in the category/list/activity selection grids
+	.empty-grid {
+		border-radius: 10px;
+		width: 20rem;
+		margin: var(--sx-spacing-8) auto;
+		padding: var(--sx-spacing-4);
+		border: 2px solid var(--sx-gray-500);
+		background: var(--sx-gray-600);
+		color: var(--sx-gray-75);
+		display: flex;
+		flex-direction: column;
+		font-size: var(--sx-font-size-4);
+		gap: var(--sx-spacing-4);
+
+		p {
+			margin: 0;
+		}
+
+		a {
+			text-align: center;
+			margin: 0;
 		}
 	}
 
