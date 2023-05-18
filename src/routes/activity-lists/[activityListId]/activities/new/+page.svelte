@@ -17,10 +17,8 @@
 	<Breadcrumbs links={breadcrumbGen.activities.new(data.category, data.activityList)} />
 
 	<h1>New Activity</h1>
-	<p>
-		Activities might be names of local restaurants, board games, or movies. Whatever fits this
-		list's theme.
-	</p>
+	<ActivityExplanation />
+
 	<div class="f-column gap-2 mt-2">
 		{#if form?.validationMessage}
 			<Alert variant="error">{form.validationMessage}</Alert>
@@ -54,6 +52,7 @@
 	import { Alert, Breadcrumbs, ripple } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 	import ActivityForm from '$lib/ActivityForm.svelte';
+	import ActivityExplanation from '$lib/explanations/ActivityExplanation.svelte';
 
 	export let data;
 	export let form;

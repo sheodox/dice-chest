@@ -3,10 +3,7 @@
 
 	<h1>New Category</h1>
 	<div>
-		<p>
-			Categories are usually different types of events you want to plan, like dates, hangouts with
-			friends, or a day off.
-		</p>
+		<CategoryExplanation showNextHint />
 	</div>
 
 	<div class="f-column gap-2 mt-2">
@@ -27,6 +24,7 @@
 	import { Alert, Breadcrumbs, ripple } from 'sheodox-ui';
 	import { breadcrumbGen } from '$lib/breadcrumbs';
 	import CategoryForm from '$lib/CategoryForm.svelte';
+	import CategoryExplanation from '$lib/explanations/CategoryExplanation.svelte';
 
 	export let data;
 	export let form;

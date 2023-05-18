@@ -44,10 +44,7 @@
 	{:else}
 		<div class="empty-grid">
 			<p>You don't have any categories yet.</p>
-			<p>
-				Categories are usually different types of events you want to plan, like dates, hangouts with
-				friends, or a day off.
-			</p>
+			<CategoryExplanation />
 			<a href={linkGen.categories.new()} class="button primary">Make a Category</a>
 		</div>
 	{/each}
@@ -57,6 +54,7 @@
 	import { Icon } from 'sheodox-ui';
 	import type { Category } from './types';
 	import { linkGen } from './breadcrumbs';
+	import CategoryExplanation from '$lib/explanations/CategoryExplanation.svelte';
 
 	export let categories: Category[];
 </script>

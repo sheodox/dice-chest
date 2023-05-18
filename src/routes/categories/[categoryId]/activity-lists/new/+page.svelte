@@ -7,10 +7,10 @@
 		{#if form?.validationMessage}
 			<Alert variant="error">{form.validationMessage}</Alert>
 		{/if}
-		<p>
-			Activity lists group similar activities. For planning a party you could make activity lists
-			for food, group activities, and movies.
-		</p>
+		<div>
+			<ActivityListExplanation showNextHint />
+		</div>
+
 		<ActivityListForm bind:name />
 
 		{#if duplicateName}
@@ -28,6 +28,7 @@
 	import { Alert, Breadcrumbs, ripple } from 'sheodox-ui';
 	import { breadcrumbGen } from '$lib/breadcrumbs';
 	import ActivityListForm from '$lib/ActivityListForm.svelte';
+	import ActivityListExplanation from '$lib/explanations/ActivityListExplanation.svelte';
 
 	export let data;
 	export let form;

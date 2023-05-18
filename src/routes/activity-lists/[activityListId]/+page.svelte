@@ -44,10 +44,7 @@
 	{:else}
 		<div class="empty-grid">
 			<p>You don't have any activities in this list yet.</p>
-			<p>
-				Activities might be names of local restaurants, board games, or movies. Whatever fits this
-				list's theme.
-			</p>
+			<ActivityExplanation />
 			<a href={linkGen.activities.new(data.activityList.id)} class="button primary">
 				Make an Activity
 			</a>
@@ -59,6 +56,7 @@
 	import { Breadcrumbs, Icon } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 	import Title from '$lib/Title.svelte';
+	import ActivityExplanation from '$lib/explanations/ActivityExplanation.svelte';
 
 	export let data;
 </script>
