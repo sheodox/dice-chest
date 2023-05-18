@@ -1,0 +1,6 @@
+{
+	"commands": [
+		{ "cmd": "./pocketbase serve", "groups": ["dev"] },
+		{ "cmd": "npm run dev", "groups": ["dev"] }
+	]
+}
