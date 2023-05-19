@@ -39,6 +39,6 @@
 		"@sveltejs/adapter-node": "^1.2.4",
 		"pocketbase": "^0.14.4",
 		"sass": "^1.62.1",
-		"sheodox-ui": "^0.19.6"
+		"sheodox-ui": "^0.19.7"
 	}
 }
