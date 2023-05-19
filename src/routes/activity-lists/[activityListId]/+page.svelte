@@ -2,6 +2,9 @@
 	.card {
 		flex-basis: 18rem;
 	}
+	.d-b {
+		display: block;
+	}
 </style>
 
 <Title title={data.activityList.name} />
@@ -24,14 +27,19 @@
 <div class="card-list">
 	{#each data.activities as activity}
 		<div class="card clickable card-split">
-			<a class="card-left" href={linkGen.activities.show(activity.id)}>
-				<span class="card-title">
+			<div class="card-left">
+				<a
+					class="card-title d-b {activity.description ? 'px-4 pt-4' : 'p-4'}"
+					href={linkGen.activities.show(activity.id)}
+				>
 					{activity.name}
-				</span>
+				</a>
 				{#if activity.description}
-					<p class="card-body sx-font-size-2 p-0 m-0 muted">{activity.description}</p>
+					<p class="card-body sx-font-size-2 px-4 m-0 d-b muted has-inline-links">
+						<RichText text={activity.description} />
+					</p>
 				{/if}
-			</a>
+			</div>
 			<a
 				href={linkGen.activities.edit(activity.id)}
 				class="button tertiary small card-right"
@@ -53,7 +61,7 @@
 </div>
 
 <script lang="ts">
-	import { Breadcrumbs, Icon } from 'sheodox-ui';
+	import { Breadcrumbs, Icon, RichText } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 	import Title from '$lib/Title.svelte';
 	import ActivityExplanation from '$lib/explanations/ActivityExplanation.svelte';

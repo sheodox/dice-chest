@@ -9,7 +9,10 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"test:watch": "vitest",
+		"test": "vitest run --silent=false --threads=false",
+		"test:ui": "vitest --ui"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
@@ -17,6 +20,7 @@
 		"@types/node": "^20.1.4",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
+		"@vitest/ui": "^0.31.1",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.26.0",
@@ -26,7 +30,8 @@
 		"svelte-check": "^3.0.1",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
-		"vite": "^4.3.0"
+		"vite": "^4.3.0",
+		"vitest": "^0.31.1"
 	},
 	"type": "module",
 	"dependencies": {
@@ -34,6 +39,6 @@
 		"@sveltejs/adapter-node": "^1.2.4",
 		"pocketbase": "^0.14.4",
 		"sass": "^1.62.1",
-		"sheodox-ui": "^0.19.5"
+		"sheodox-ui": "^0.19.6"
 	}
 }

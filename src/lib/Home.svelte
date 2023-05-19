@@ -29,7 +29,7 @@
 <div class="card-list">
 	{#each categories as category}
 		<div class="card clickable card-split">
-			<a class="card-title card-left" href={linkGen.categories.show(category.id)}>
+			<a class="card-title card-left p-4" href={linkGen.categories.show(category.id)}>
 				{category.name}
 			</a>
 			<a

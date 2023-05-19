@@ -53,7 +53,6 @@
 
 			.card-left {
 				flex: 1;
-				padding: var(--sx-spacing-4);
 			}
 			// remove padding fromm the title, as long as it's not the only thing on the left
 			.card-title:not(.card-left) {

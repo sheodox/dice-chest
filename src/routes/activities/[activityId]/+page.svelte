@@ -16,14 +16,16 @@
 <Fieldset legend="Description">
 	{@const desc = data.activity.description.trim()}
 	{#if desc}
-		<p class="pre-line">{desc}</p>
+		<p class="pre-line has-inline-links">
+			<RichText text={desc} />
+		</p>
 	{:else}
 		<p class="muted">No description</p>
 	{/if}
 </Fieldset>
 
 <script lang="ts">
-	import { Breadcrumbs, Fieldset, Icon } from 'sheodox-ui';
+	import { Breadcrumbs, Fieldset, Icon, RichText } from 'sheodox-ui';
 	import { breadcrumbGen, linkGen } from '$lib/breadcrumbs';
 	import Title from '$lib/Title.svelte';
 
