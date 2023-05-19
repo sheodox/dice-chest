@@ -15,7 +15,7 @@ export const load = (async ({ locals, params }) => {
 
 	return {
 		category,
-		activityLists: (category as any).expand[activityListExpand] as ActivityList[]
+		activityLists: ((category as any).expand[activityListExpand] ?? []) as ActivityList[]
 	};
 }) satisfies PageServerLoad;
 
