@@ -33,7 +33,7 @@
 				{category.name}
 			</a>
 			<a
-				href={linkGen.categories.roll(category.id)}
+				href={linkGen.categories.prePlan(category.id)}
 				class="button primary small card-right"
 				title="Roll"
 			>

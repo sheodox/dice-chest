@@ -8,7 +8,7 @@ export const linkGen = {
 		new: () => '/categories/new',
 		show: (id: string) => `/categories/${id}`,
 		edit: (id: string) => `/categories/${id}/edit`,
-		roll: (id: string) => `/categories/${id}/roll`,
+		prePlan: (id: string) => `/categories/${id}/pre-plan`,
 		plan: (id: string, listIds: string) => `/categories/${id}/plan?listIds=${listIds}`
 	},
 	activityLists: {
@@ -56,11 +56,11 @@ export const breadcrumbGen = {
 				}
 			];
 		},
-		roll: (category: Identifiable) => {
+		prePlan: (category: Identifiable) => {
 			return [
 				...breadcrumbGen.categories.show(category),
 				{
-					text: 'Roll'
+					text: 'Plan'
 				}
 			];
 		}

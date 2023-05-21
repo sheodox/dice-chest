@@ -12,9 +12,9 @@
 	<h1>{data.category.name}</h1>
 	<div>
 		{#if data.activityLists.length}
-			<a class="button primary" href={linkGen.categories.roll(data.category.id)}>
+			<a class="button primary" href={linkGen.categories.prePlan(data.category.id)}>
 				<Icon icon="hat-wizard" />
-				Roll
+				Plan
 			</a>
 		{/if}
 		<a class="button tertiary" href={linkGen.categories.edit(data.category.id)}>

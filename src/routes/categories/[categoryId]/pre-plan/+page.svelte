@@ -1,6 +1,6 @@
 <Title title="Roll {data.category.name}" />
 
-<Breadcrumbs links={breadcrumbGen.categories.roll(data.category)} />
+<Breadcrumbs links={breadcrumbGen.categories.prePlan(data.category)} />
 
 <div class="f-row justify-content-between align-items-center">
 	<h1>{data.category.name}</h1>
