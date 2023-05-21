@@ -35,10 +35,10 @@
 			<a
 				href={linkGen.categories.prePlan(category.id)}
 				class="button primary small card-right"
-				title="Roll"
+				title="Plan"
 			>
 				<Icon icon="hat-wizard" variant="icon-only" />
-				<span class="sr-only">Roll</span>
+				<span class="sr-only">Plan</span>
 			</a>
 		</div>
 	{:else}

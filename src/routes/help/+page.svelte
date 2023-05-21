@@ -59,7 +59,7 @@
 			watch a movie,"
 		</blockquote>
 		<p>
-			Plan events by clicking "<Icon icon="hat-wizard" /> Roll" on a category. Then select the types
+			Plan events by clicking "<Icon icon="hat-wizard" /> Plan" on a category. Then select the types
 			of activites you wish to do, and in what order. (You can even select an activity list multiple
 			times!)
 		</p>
