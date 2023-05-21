@@ -56,27 +56,13 @@
 	</div>
 
 	{#if data.listIds[pickingIndex]}
-		{@const picking = data.listIds[pickingIndex]}
-		<div class="f-row f-wrap justify-content-between align-items-center">
-			<h2 class="m-0">Pick activity for "{data.lists[picking].name}"</h2>
-			<button class="tertiary" on:click={() => (pickingIndex = -1)}
-				><Icon icon="times" /> Cancel</button
-			>
-		</div>
-		<div class="card-list">
-			{#each data.activities[picking] as activity}
-				<div class="card gap-2 p-2 f-column">
-					<button class="secondary" on:click={() => pick(activity)}>
-						{activity.name}
-					</button>
-					{#if activity.description}
-						<p class="card-body sx-font-size-2 px-4 m-0 d-b muted has-inline-links">
-							<RichText text={activity.description} />
-						</p>
-					{/if}
-				</div>
-			{/each}
-		</div>
+		{@const pickingId = data.listIds[pickingIndex]}
+		<PickActivity
+			on:cancel={() => (pickingIndex = -1)}
+			on:select={pick}
+			activities={data.activities[pickingId]}
+			activityList={data.lists[pickingId]}
+		/>
 	{/if}
 </div>
 
@@ -85,6 +71,7 @@
 	import { breadcrumbGen } from '$lib/breadcrumbs';
 	import type { Activity, ActivityList } from '$lib/types';
 	import Title from '$lib/Title.svelte';
+	import PickActivity from '$lib/PickActivity.svelte';
 
 	export let data;
 
@@ -120,8 +107,8 @@
 		plan[index] = generatePlanForList(data.listIds[index]);
 	}
 
-	function pick(activity: Activity) {
-		plan[pickingIndex].activity = activity;
+	function pick(e: CustomEvent<Activity>) {
+		plan[pickingIndex].activity = e.detail;
 		pickingIndex = -1;
 	}
 
