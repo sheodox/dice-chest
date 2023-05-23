@@ -48,7 +48,7 @@
 					<p class="muted sx-font-size-4 px-2 align-self-center f-1">No activities!</p>
 				{/if}
 				<p class="sx-badge-cyan f-row justify-content-between gap-2">
-					<span>{item.activityList.name}</span>
+					<span>{index + 1}. {item.activityList.name}</span>
 					<span>{activityCount} {activityCount === 1 ? 'activity' : 'activities'}</span>
 				</p>
 			</div>
