@@ -55,6 +55,7 @@
 	section:not(.hero) {
 		img {
 			border-radius: 20px;
+			box-shadow: var(--sx-shadow-5);
 		}
 
 		> * {
@@ -102,6 +103,17 @@
 	<p class="py-6">Then Dice Chest will plan a date with random activities from our lists.</p>
 
 	<img src="/dates-plan.png" alt="demo showing random date night plan" />
+</section>
+
+<section class="has-inline-links">
+	<h1>For Everything You Do</h1>
+
+	<p>
+		Keep activity lists organized in categories. Make one for each type of event you're planning,
+		like <em>Dates</em>, or <em>Hangouts With Friends</em>.
+	</p>
+
+	<img src="/categories.png" alt="categories" />
 </section>
 
 <section class="has-inline-links">
