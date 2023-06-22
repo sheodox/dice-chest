@@ -9,6 +9,5 @@ ENV PB_HOST=pocketbase
 COPY . .
 RUN npm run build
 
-# before starting, copy all of the newly built frontend assets to the folder nginx serves
 CMD node build
 
